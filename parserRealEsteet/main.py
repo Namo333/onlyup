@@ -2,6 +2,9 @@ from bs4 import BeautifulSoup
 import cloudscraper
 import requests
 
+# from components.get_url import getUrl
+# from components.get_item import getItem
+
 url = "https://topaddress.ae/"
 
 proxy = {
