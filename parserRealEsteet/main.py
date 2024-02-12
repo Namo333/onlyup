@@ -3,7 +3,7 @@ import requests
 from components.get_url import getUrl
 from components.get_item import getItem
 
-url = "https://topaddress.ae/"
+url = "https://topaddress.ae/dubai-apartments-for-sale/"
 
 proxy = {
    'http': 'http://69.84.182.35:80',
