@@ -1,5 +1,4 @@
 import requests
-import base64
 import json
 
 from components.get_url import getUrl
