@@ -1,7 +1,6 @@
-import requests
 import json
 
-from components.get_url import getUrl
+from components.get_url import getDynamicSoup
 from components.get_item import getItem
 
 url = "https://topaddress.ae/dubai-apartments-for-sale/"
@@ -11,8 +10,9 @@ proxy = {
 }
 
 def main():
-    soup = getUrl(url, proxy)
+    soup = getDynamicSoup(url, proxy)
     nameRealEst = getItem.getName(soup)
+    hrefRealEst = getItem.getHref(soup)
     addresRealEst = getItem.getAddres(soup)
     developerRealEst = getItem.getDeveloper(soup)
     roomsRealEst = getItem.getRooms(soup)
@@ -24,6 +24,7 @@ def main():
     for idx, data in enumerate(nameRealEst, start=1):
         data_dict = {
             "id": idx,
+            "hrefEstete": hrefRealEst[idx - 1]['hrefEstete'] if hrefRealEst and idx <= len(hrefRealEst) else None,
             "nameEstete": data['nameEstete'],
             "addresEstete": addresRealEst[idx - 1]['addresEstete'] if addresRealEst and idx <= len(addresRealEst) else None,
             "developerEstete": developerRealEst[idx - 1]['developerEstete'] if developerRealEst and idx <= len(developerRealEst) else None,

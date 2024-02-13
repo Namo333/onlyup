@@ -1,4 +1,5 @@
 class getItem:
+
     @staticmethod
     def getName(soup):
         homeName = soup.find_all('h3', class_='object-block-title')
@@ -12,24 +13,72 @@ class getItem:
         return data_list
     
     @staticmethod
+    def getHref(soup):
+        hrefName = soup.find_all('div', class_='object-block-bottom')
+        data_list = []
+        for href in hrefName:
+            hrefLinks = href.find_all('a', class_='object-block-link')
+            for nameHref in hrefLinks:
+                dataHref = nameHref.get('href')
+                href = {'hrefEstete': dataHref}
+                data_list.append(href)
+        return data_list
+    
+    @staticmethod
     def getAddres(soup):
-        pass
+        addresName = soup.find_all('div', class_='object-block-location')
+        data_list=[]
+        for addres in addresName:
+            textAddres = addres.find_all('a')
+            for addresItem in textAddres:
+                addres = {'addresEstete': addresItem.text}
+                data_list.append(addres)
+        return data_list
+
 
     @staticmethod
     def getDeveloper(soup):
-        pass
+        developerName = soup.find_all('div', class_='object-block-developer')
+        data_list=[]
+        for addres in developerName:
+            textAddres = addres.find_all('a')
+            for addresItem in textAddres:
+                addres = {'developerEstete': addresItem.text}
+                data_list.append(addres)
+        return data_list
 
     @staticmethod
     def getRooms(soup):
-        pass
+        roomsName = soup.find_all('div', class_='object-block-container')
+        data_list=[]
+        for addres in roomsName:
+            textAddres = addres.find_all('span', class_='object-block-rooms')
+            for addresItem in textAddres:
+                addres = {'roomsEstete': addresItem.text}
+                data_list.append(addres)
+        return data_list
 
     @staticmethod
     def getSquare(soup):
-        pass
+        squareName = soup.find_all('div', class_='object-block-container')
+        data_list=[]
+        for addres in squareName:
+            textAddres = addres.find_all('span', class_='object-block-square')
+            for addresItem in textAddres:
+                addres = {'squareEstete': addresItem.text}
+                data_list.append(addres)
+        return data_list
 
     @staticmethod
     def getPrice(soup):
-        pass
+        priceName = soup.find_all('div', class_='object-block-price')
+        data_list=[]
+        for addres in priceName:
+            textAddres = addres.find_all('span', class_='price-num')
+            for addresItem in textAddres:
+                addres = {'priceEstete': f'{addresItem.text}$'}
+                data_list.append(addres)
+        return data_list
 
     @staticmethod
     def getImage(soup):
