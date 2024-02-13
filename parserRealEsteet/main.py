@@ -1,4 +1,5 @@
 import requests
+import base64
 import json
 
 from components.get_url import getUrl
@@ -30,7 +31,7 @@ def main():
             "roomsEstete": roomsRealEst[idx - 1]['roomsEstete'] if roomsRealEst and idx <= len(roomsRealEst) else None,
             "squareEstete": squareRealEst[idx - 1]['squareEstete'] if squareRealEst and idx <= len(squareRealEst) else None,
             "priceEstete": priceRealEst[idx - 1]['priceEstete'] if priceRealEst and idx <= len(priceRealEst) else None,
-            "image_url": imageRealEst[idx - 1]['image_url'] if imageRealEst and idx <= len(imageRealEst) else None
+            "imageUrlEstete": imageRealEst[idx - 1]['imageUrlEstete'] if imageRealEst and idx <= len(imageRealEst) else None
         }
         data_list.append(data_dict)
 

@@ -42,7 +42,7 @@ class getItem:
                 for ansImg in imgSrc:
                     image_url = ansImg.get('src')
                     image_data = {
-                        'image_url': image_url
+                        'imageUrlEstete': image_url
                     }
                     image_list.append(image_data)
         return image_list
